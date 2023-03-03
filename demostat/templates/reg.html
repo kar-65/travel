@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Saurav">
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<title>Registration Form</title>
+</head>
+
+<body class="bg-light">
+ <div class="container">
+  <div class="py-5 text-center">
+    <h2>Registration Form</h2>
+  </div>
+ </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     <form action="register" method="post">
+     {% csrf_token %}
+       <div class="form-group">
+         <label for="exampleInputEmail1">First Name</label>
+         <input type="text" class="form-control" name="firstName" placeholder="Jem" required>
+       </div>
+
+       <div class="form-group">
+         <label for="exampleInputEmail1">Last Name</label>
+         <input type="text" class="form-control" name="lastname" placeholder="ken" required>
+       </div>
+     
+       <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name="email" placeholder="Jem@email.com" aria-describedby="emailHelp">
+          <small name="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+       </div>
+
+       <div class="form-group">
+         <label for="exampleInputEmail1">User Name</label>
+         <input type="text" class="form-control" name="uname" placeholder="Jem" required>
+       </div>
+
+       <div class="form-group">
+         <label for="exampleInputEmail1">Password</label>
+         <input type="password" class="form-control" name="pass" required>
+       </div>
+
+       <div class="form-group">
+         <label for="exampleInputEmail1">Confirm Password</label>
+         <input type="password" class="form-control" name="cpass" required>
+       </div>
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+
+     </form>
+      {% for msg in messages %}
+       <h1> {{msg}} </h1>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</body>
+</html>
